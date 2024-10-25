@@ -20,10 +20,10 @@ namespace TextRPG_OOP_
             : base(color, sharedRandom, gameManager)
         {
             enemyType = "Plasmoid";
-            damage = Settings.PlasmoidBaseDamage;
-            avatar = Settings.PlasmoidChar;
+            damage = gameManager.settings.PlasmoidBaseDamage;
+            avatar = gameManager.settings.PlasmoidChar;
             healthSystem = new HealthSystem();
-            healthSystem.SetHealth(Settings.PlasmoidBaseHP);
+            healthSystem.SetHealth(gameManager.settings.PlasmoidBaseHP);
             healthSystem.IsAlive = true;
         }
 

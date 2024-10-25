@@ -10,20 +10,27 @@ namespace TextRPG_OOP_
     {
         private List<Quest> quests;
         public GameManager gameManager;
-        public string questCollectCoins = $"Collect {Settings.questTargetCoin} coins";
-        public string questKillEnemyType = $"Kill {Settings.questTargetEnemy1} {Settings.questEnemyType}";
-        public string questKillEnemyType2 = $"Kill {Settings.questTargetEnemy2} {Settings.questEnemyType2}";
-        public string questKillEnemies = $"Kill {Settings.questTargetMulti} enemies";
+        private Settings settings;
+        public string questCollectCoins;
+        public string questKillEnemyType;
+        public string questKillEnemyType2;
+        public string questKillEnemies;
         
         public QuestManager(GameManager gameManager)
         {
             this.gameManager = gameManager;
+            settings = gameManager.settings;
+            questCollectCoins = $"Collect {settings.questTargetCoin} coins";
+            questKillEnemyType = $"Kill {settings.questTargetEnemy1} {settings.questEnemyType}";
+            questKillEnemyType2 = $"Kill {settings.questTargetEnemy2} {settings.questEnemyType2}";
+            questKillEnemies = $"Kill {settings.questTargetMulti} enemies";
             quests = new List<Quest>
+
         {
-            new Quest(questCollectCoins, Settings.questTargetCoin, gameManager), // Collect coins quest
-            new Quest(questKillEnemyType, Settings.questTargetEnemy1, gameManager),    // Kill specific enemy quest
-            new Quest(questKillEnemyType2 , Settings.questTargetEnemy2, gameManager), // kill other specific enemy quest
-            new Quest(questKillEnemies, Settings.questTargetMulti, gameManager)   // Kill more enemies quest
+            new Quest(questCollectCoins, settings.questTargetCoin, gameManager), // Collect coins quest
+            new Quest(questKillEnemyType, settings.questTargetEnemy1, gameManager),    // Kill specific enemy quest
+            new Quest(questKillEnemyType2 , settings.questTargetEnemy2, gameManager), // kill other specific enemy quest
+            new Quest(questKillEnemies, settings.questTargetMulti, gameManager)   // Kill more enemies quest
         };
         }
 

@@ -18,10 +18,10 @@ namespace TextRPG_OOP_
         public Construct(ConsoleColor color, Random sharedRandom, GameManager gameManager) : base(color, sharedRandom, gameManager)
         {
             enemyType = "Construct";
-            damage = Settings.ConstructBaseDamage;
-            avatar = Settings.ConstructChar ;  // ASCII character for Construct
+            damage = gameManager.settings.ConstructBaseDamage;
+            avatar = gameManager.settings.ConstructChar ;  // ASCII character for Construct
             healthSystem = new HealthSystem();
-            healthSystem.SetHealth(Settings.ConstructBaseHP);
+            healthSystem.SetHealth(gameManager.settings.ConstructBaseHP);
             healthSystem.IsAlive = true;
         }
 

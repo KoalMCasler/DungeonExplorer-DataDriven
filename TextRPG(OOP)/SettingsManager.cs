@@ -38,7 +38,10 @@ namespace TextRPG_OOP_
 
         private void LoadSettings()
         {
-            savedJson = File.ReadAllText(fileName);
+            if(File.Exists(fileName))
+            {
+                savedJson = File.ReadAllText(fileName);
+            }
         }
 
     }

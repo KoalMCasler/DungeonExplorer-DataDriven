@@ -9,13 +9,13 @@ namespace TextRPG_OOP_
 {
     internal class Armor : Item
     {
-        public Armor()
+        public Armor(Settings settings)
         {
-            gainAmount = Settings.armorGain;
-            avatar = Settings.armorChar;
-            color = Settings.armorColor;
+            gainAmount = settings.armorGain;
+            avatar = settings.armorChar;
+            color = settings.armorColor;
             itemType = "Armor";
-            cost = Settings.armorCost;
+            cost = settings.armorCost;
         }
 
 

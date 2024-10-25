@@ -32,19 +32,20 @@ namespace TextRPG_OOP_
             private ItemManager itemManager; // references to itemManager
             private UIManager uiManager;
             private GameManager GameManager;
+            private Settings settings;
             private QuestManager questManager;
             internal bool boughtItem;
 
             public Player(GameManager gameManager)
             {
                 this.GameManager = gameManager;
-
+                settings = gameManager.settings;
                 avatar = (char)2; // Sets player to smiley face
 
-                damage = Settings.PlayerBaseDamage; // sets damage with the player base from settings
+                damage = settings.PlayerBaseDamage; // sets damage with the player base from settings
                 healthSystem = new HealthSystem();  // creates new health system for player
-                healthSystem.SetHealth(Settings.playerMaxHP); // sets max hp
-                name = Settings.playerName; // player name
+                healthSystem.SetHealth(settings.playerMaxHP); // sets max hp
+                name = settings.playerName; // player name
 
                 this.map = gameManager.gameMap; // Hands map to player
                 this.uiManager = gameManager.uiManager;

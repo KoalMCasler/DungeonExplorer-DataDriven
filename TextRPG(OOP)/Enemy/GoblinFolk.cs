@@ -18,10 +18,10 @@ namespace TextRPG_OOP_
         public GoblinFolk(ConsoleColor color, Random sharedRandom, GameManager gameManager) : base(color, sharedRandom, gameManager)
         {
             enemyType = "GoblinFolk";
-            damage = Settings.GoblinFolkBaseDamage;
-            avatar = Settings.GoblinFolkChar;  // ASCII character for Goblin
+            damage = gameManager.settings.GoblinFolkBaseDamage;
+            avatar = gameManager.settings.GoblinFolkChar;  // ASCII character for Goblin
             healthSystem = new HealthSystem();
-            healthSystem.SetHealth(Settings.GoblinFolkBaseHP);
+            healthSystem.SetHealth(gameManager.settings.GoblinFolkBaseHP);
             healthSystem.IsAlive = true;
         }
 

@@ -26,9 +26,11 @@ namespace TextRPG_OOP_
         public bool inStore = false;
 
         public bool foundstart;
+        public Settings settings;
 
-        public Map()
+        public Map(Settings set)
         {
+            settings = set;
             Initialize();
         }
 
@@ -103,20 +105,39 @@ namespace TextRPG_OOP_
         }
 
         /// <summary>
-        /// Draws individual tile based on the character.
+        /// Draws individual tile based on the character. Had to switch to if statement as Switch needs constants. 
         /// </summary>
         /// <param name="tile"></param>
         private void DrawTile(char tile)
         {
-            switch (tile)
+            if(tile ==  settings.dungeonWall)
             {
-                case Settings.dungeonWall: DrawColorTile(ConsoleColor.DarkGray, ConsoleColor.DarkGray, tile); break;
-                case Settings.dungeonFloor: DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile); break;
-                case Settings.storeFloor: DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile); break;
-                case Settings.startingPosition: foundstart = true; DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile); break;
-                case Settings.stairs: DrawColorTile(ConsoleColor.DarkGray, ConsoleColor.Gray, Settings.newStairsChar); break;
-                case Settings.storeChar: DrawColorTile(ConsoleColor.Red, ConsoleColor.DarkGray, tile); break;
-                default: DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile); break;
+                DrawColorTile(ConsoleColor.DarkGray, ConsoleColor.DarkGray, tile);
+            }
+            if(tile == settings.dungeonFloor)
+            {
+                DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
+            }
+            if(tile == settings.storeFloor)
+            {
+                DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
+            }
+            if(tile == settings.startingPosition)
+            {
+                foundstart = true;
+                DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
+            }
+            if(tile == settings.stairs)
+            {
+                DrawColorTile(ConsoleColor.DarkGray, ConsoleColor.Gray, settings.newStairsChar);
+            }
+            if(tile == settings.storeChar)
+            {
+                DrawColorTile(ConsoleColor.Red, ConsoleColor.DarkGray, tile);
+            }
+            else
+            {
+                DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
             }
         }
 
@@ -168,17 +189,17 @@ namespace TextRPG_OOP_
 
         public bool IsWalkable(int x, int y)
         {
-            return activeMap[y, x] != Settings.dungeonWall;
+            return activeMap[y, x] != settings.dungeonWall;
         }
 
         public bool isInStore(int x, int y)
         {
-            return activeMap[y,x] == Settings.storeFloor;
+            return activeMap[y,x] == settings.storeFloor;
         }
 
         public bool IsStairs(int x, int y)
         {
-            return activeMap[y, x] == Settings.stairs;
+            return activeMap[y, x] == settings.stairs;
         }
 
         

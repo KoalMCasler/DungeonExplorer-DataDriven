@@ -15,7 +15,8 @@ namespace TextRPG_OOP_
         public QuestManager questManager;
         public bool GameOver;
         public bool GameWon;
-
+        public SettingsManager settingsManager;
+        public Settings settings;
 
         private void StartUp()
         {
@@ -76,12 +77,13 @@ namespace TextRPG_OOP_
         }
         private void Initialize()
         {
-            gameMap = new Map();  // Game map must be initialized first since all managers rely on it
-
+            settingsManager = new SettingsManager();
+            settings = settingsManager.savedSettings;
+            gameMap = new Map(settings);  // Game map must be initialized first since all managers rely on it
             // Initialize managers
             uiManager = new UIManager();
             itemManager = new ItemManager();
-            enemyManager = new EnemyManager();
+            enemyManager = new EnemyManager(settings);
             questManager = new QuestManager(this);
 
             // Initialize player after UIManager and other managers are set up

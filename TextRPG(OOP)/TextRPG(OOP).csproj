@@ -103,7 +103,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Maps\MapLegend.txt" />
+    <Content Include="Maps\MapLegend.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Maps\Floor1Map.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -12,30 +12,33 @@ namespace TextRPG_OOP_
         public Map gameMap;
         public GameManager gameManager;
         public QuestManager questManager;
+        public Settings settings;
 
         private const int MaxEventLogMessages = 2;
         public List<string> eventMessages = new List<string>();
-        public char[] legendsChar = new char[] {
-    Settings.PlasmoidChar,
-    Settings.ConstructChar,
-    Settings.GoblinFolkChar,
-    Settings.spikeChar,
-    Settings.healthChar,
-    Settings.coinChar,
-    Settings.armorChar,
-    Settings.swordChar,
-    Settings.finalLootChar,
-            Settings.storeChar,
-
-};
+        public char[] legendsChar;
 
 
         public void Initialize(GameManager gameManager)
         {
             this.gameManager = gameManager;
+            settings = gameManager.settings;
             player = gameManager.player;
             gameMap = gameManager.gameMap;
             questManager = gameManager.questManager;
+            legendsChar = new char[] 
+            {
+            settings.PlasmoidChar,
+            settings.ConstructChar,
+            settings.GoblinFolkChar,
+            settings.spikeChar,
+            settings.healthChar,
+            settings.coinChar,
+            settings.armorChar,
+            settings.swordChar,
+            settings.finalLootChar,
+            settings.storeChar,
+            };
         }
 
         public void Update()
@@ -78,22 +81,22 @@ namespace TextRPG_OOP_
 
             Console.WriteLine();
             Console.Write("Collect coins ");
-            Console.ForegroundColor = Settings.coinColor; // change the color for coins\
-            Console.Write(Settings.coinChar);
+            Console.ForegroundColor = settings.coinColor; // change the color for coins\
+            Console.Write(settings.coinChar);
             Console.ResetColor();
             Console.Write(" to buy things at the store in each level.");
             Console.WriteLine();
 
             Console.Write("Collect hearts ");
-            Console.ForegroundColor = Settings.healthColor; // change the color for health
-            Console.Write(Settings.healthChar); // Write the health character
+            Console.ForegroundColor = settings.healthColor; // change the color for health
+            Console.Write(settings.healthChar); // Write the health character
             Console.ResetColor();
             Console.Write(" to heal. ");
             Console.WriteLine();
 
             Console.Write("Collect pieces of armor ");
-            Console.ForegroundColor = Settings.armorColor; // Change color for armor character
-            Console.Write(Settings.armorChar); // Write the armor character
+            Console.ForegroundColor = settings.armorColor; // Change color for armor character
+            Console.Write(settings.armorChar); // Write the armor character
             Console.ResetColor();
             Console.WriteLine(" to up your defense.");
 
@@ -200,39 +203,90 @@ namespace TextRPG_OOP_
 
         private ConsoleColor Color(char avatar)
         {
-            switch (avatar)
+            if(avatar == settings.PlasmoidChar || avatar == settings.ConstructChar || avatar == settings.GoblinFolkChar)
             {
-                case Settings.PlasmoidChar:
-                case Settings.ConstructChar:
-                case Settings.GoblinFolkChar:
-                    return Console.ForegroundColor;
-                case Settings.healthChar: return Settings.healthColor;
-                case Settings.coinChar: return Settings.coinColor;
-                case Settings.armorChar: return Settings.armorColor;
-                case Settings.swordChar: return Settings.swordColor;
-                case Settings.finalLootChar: return Settings.finalLootColor;
-                case Settings.spikeChar: return Settings.spikeColor;
-                case Settings.storeChar: return ConsoleColor.Red;
-                default: return ConsoleColor.Black;
+                return Console.ForegroundColor;
+            }
+            else if(avatar == settings.healthChar)
+            {
+                return settings.healthColor;
+            }
+            else if(avatar == settings.coinChar)
+            {
+                return settings.coinColor;
+            }
+            else if(avatar == settings.armorChar)
+            {
+                return settings.armorColor;
+            }
+            else if(avatar == settings.swordChar)
+            {
+                return settings.swordColor;
+            }
+            else if(avatar == settings.finalLootChar)
+            {
+                return settings.finalLootColor;
+            }
+            else if(avatar == settings.spikeChar)
+            {
+                return settings.spikeColor;
+            }
+            else if(avatar == settings.storeChar)
+            {
+                return ConsoleColor.Red;
+            }
+            else
+            {
+                return ConsoleColor.Black;
             }
         }
 
         private string Name(char avatar)
         {
-            switch (avatar)
+            if(avatar == settings.PlasmoidChar)
             {
-                case Settings.PlasmoidChar: return "Plasmoid";
-                case Settings.ConstructChar: return "Construct";
-                case Settings.GoblinFolkChar: return "Goblin Folk";
-                case Settings.spikeChar: return "Spike";
-                case Settings.healthChar: return "Health";
-                case Settings.coinChar: return "Coins";
-                case Settings.armorChar: return "Armor";
-                case Settings.swordChar: return "Sword";
-                case Settings.finalLootChar: return "Final Loot";
-                case Settings.storeChar: return "Store";
-                default: return "Character name not available";
+                return "Plasmoid";
             }
+            else if(avatar == settings.ConstructChar)
+            {
+                return "Construct";
+            }
+            else if(avatar == settings.GoblinFolkChar)
+            {
+                return "Goblin Folk";
+            }
+            else if(avatar == settings.spikeChar)
+            {
+                return "Spike";
+            }
+            else if(avatar == settings.healthChar)
+            {
+                return "Health";
+            }
+            else if(avatar == settings.coinChar) 
+            {
+                return "Coins";
+            }
+            else if(avatar == settings.armorChar)
+            {
+                return "Armor";
+            }
+            else if(avatar == settings.swordChar)
+            {
+                return "Sword";
+            }
+            else if(avatar == settings.finalLootChar)
+            {
+                return "Final Loot";
+            }
+            else if(avatar == settings.storeChar) 
+            {
+                return "Store";
+            }
+            else
+            {
+                return "Character name not available";
+            } 
         }
     }
 }

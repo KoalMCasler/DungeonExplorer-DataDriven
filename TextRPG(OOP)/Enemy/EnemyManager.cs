@@ -14,9 +14,11 @@ internal class EnemyManager
     public GameManager gameManager;
     public UIManager uiManager;
     public QuestManager questManager;
+    private Settings settings;
 
-    public EnemyManager()
+    public EnemyManager(Settings set)
     {
+        settings = set;
         levelEnemies = new Dictionary<int, List<Enemy>>();
         random = new Random();  // Instantiate Random once
     }
@@ -99,9 +101,9 @@ internal class EnemyManager
                 {
                     if (!enemy.beenCounted)
                     {
-                        if (enemy.enemyType == Settings.questEnemyType)
+                        if (enemy.enemyType == settings.questEnemyType)
                             questManager.UpdateQuestProgress(questManager.questKillEnemyType, 1); // update enemy type kill quest
-                        if (enemy.enemyType == Settings.questEnemyType2)
+                        if (enemy.enemyType == settings.questEnemyType2)
                             questManager.UpdateQuestProgress(questManager.questKillEnemyType2, 1); // update enemy type kill quest 2
                         questManager.UpdateQuestProgress(questManager.questKillEnemies, 1); // Update all enemies kill quest
                         uiManager.AddEventLogMessage($"You killed {enemy.enemyType}");

@@ -13,6 +13,7 @@ namespace TextRPG_OOP_
         Dictionary<int, List<Item>> levelItems;
         public Map gameMap;
         public GameManager GameManager;
+        private Settings settings;
         public Player player;
 
         public ItemManager()
@@ -25,6 +26,7 @@ namespace TextRPG_OOP_
             this.GameManager = gameManager;
             this.gameMap = gameManager.gameMap;
             this.player = gameManager.player;
+            settings = gameManager.settings;
         }
 
         public void AddItems()
@@ -63,12 +65,12 @@ namespace TextRPG_OOP_
 
                 switch (type)
                 {
-                    case "Armor": item = new Armor(); break;
-                    case "Health": item = new Health(); break;
-                    case "Coin": item = new Coin(); break;
-                    case "Spike": item = new Spike(); break;
-                    case "Sword": item = new Sword(); break;
-                    case "Chalice": item = new Chalice(); break;
+                    case "Armor": item = new Armor(settings); break;
+                    case "Health": item = new Health(settings); break;
+                    case "Coin": item = new Coin(settings); break;
+                    case "Spike": item = new Spike(settings); break;
+                    case "Sword": item = new Sword(settings); break;
+                    case "Chalice": item = new Chalice(settings); break;
                 }
 
                 if (item != null)

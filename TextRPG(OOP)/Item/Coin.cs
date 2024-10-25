@@ -9,11 +9,11 @@ namespace TextRPG_OOP_
 {
     internal class Coin : Item
     {
-        public Coin() 
+        public Coin(Settings settings) 
         {
-            gainAmount = Settings.coinGain;
-            avatar = Settings.coinChar;
-            color = Settings.coinColor;
+            gainAmount = settings.coinGain;
+            avatar = settings.coinChar;
+            color = settings.coinColor;
             itemType = "Coin";
         }
 
