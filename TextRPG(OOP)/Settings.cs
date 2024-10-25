@@ -9,7 +9,7 @@ namespace TextRPG_OOP_
     /// <summary>
     /// Holds the base values for all Characater
     /// </summary>
-    internal static class Settings
+    internal class Settings
     {
         // Settings for map char
         public const char storeChar = 'S';
