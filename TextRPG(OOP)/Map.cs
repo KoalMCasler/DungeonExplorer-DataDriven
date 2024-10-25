@@ -28,9 +28,9 @@ namespace TextRPG_OOP_
         public bool foundstart;
         public Settings settings;
 
-        public Map(Settings set)
+        public Map(GameManager gameManager)
         {
-            settings = set;
+            settings = gameManager.settings;
             Initialize();
         }
 
@@ -114,24 +114,24 @@ namespace TextRPG_OOP_
             {
                 DrawColorTile(ConsoleColor.DarkGray, ConsoleColor.DarkGray, tile);
             }
-            if(tile == settings.dungeonFloor)
+            else if(tile == settings.dungeonFloor)
             {
                 DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
             }
-            if(tile == settings.storeFloor)
+            else if(tile == settings.storeFloor)
             {
                 DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
             }
-            if(tile == settings.startingPosition)
+            else if(tile == settings.startingPosition)
             {
                 foundstart = true;
                 DrawColorTile(ConsoleColor.Gray, ConsoleColor.Gray, tile);
             }
-            if(tile == settings.stairs)
+            else if(tile == settings.stairs)
             {
                 DrawColorTile(ConsoleColor.DarkGray, ConsoleColor.Gray, settings.newStairsChar);
             }
-            if(tile == settings.storeChar)
+            else if(tile == settings.storeChar)
             {
                 DrawColorTile(ConsoleColor.Red, ConsoleColor.DarkGray, tile);
             }

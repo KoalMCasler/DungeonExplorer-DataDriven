@@ -79,11 +79,11 @@ namespace TextRPG_OOP_
         {
             settingsManager = new SettingsManager();
             settings = settingsManager.savedSettings;
-            gameMap = new Map(settings);  // Game map must be initialized first since all managers rely on it
+            gameMap = new Map(this);  // Game map must be initialized first since all managers rely on it
             // Initialize managers
             uiManager = new UIManager();
             itemManager = new ItemManager();
-            enemyManager = new EnemyManager(settings);
+            enemyManager = new EnemyManager(this);
             questManager = new QuestManager(this);
 
             // Initialize player after UIManager and other managers are set up

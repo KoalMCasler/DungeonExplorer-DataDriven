@@ -16,9 +16,9 @@ internal class EnemyManager
     public QuestManager questManager;
     private Settings settings;
 
-    public EnemyManager(Settings set)
+    public EnemyManager(GameManager gameManager)
     {
-        settings = set;
+        settings = gameManager.settings;
         levelEnemies = new Dictionary<int, List<Enemy>>();
         random = new Random();  // Instantiate Random once
     }
