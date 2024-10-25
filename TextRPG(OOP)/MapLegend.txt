@@ -1,0 +1,13 @@
+'-' = floor
+'#' = Wall
+'*' = Spikes
+'~' = Stairs to next floor
+'=' = Spawn point for floor: draws as wall in game
+'$' = Game end point
+'@' = Coin Spawn
+'"' = Health Spawn
+'+' = Armor Spawn
+'!' = Plasmoid Spawn
+'?' = Construct Spawn
+'&' = Goblin Spawn
+Anything else gets drawn as is, in the colors of the walls. 
