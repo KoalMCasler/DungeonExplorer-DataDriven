@@ -12,72 +12,131 @@ namespace TextRPG_OOP_
     internal class Settings
     {
         // Settings for map char
-        public char storeChar = 'S';
-        public char storeFloor = '%';
-        public char dungeonWall = '#';
-        public char dungeonFloor = '-';
-        public char stairs = '~';
-        public char newStairsChar = (char)30;
-        public char startingPosition = '=';
+        public char storeChar { get; set; }
+        public char storeFloor { get; set; }
+        public char dungeonWall { get; set; }
+        public char dungeonFloor { get; set; }
+        public char stairs { get; set; }
+        public char newStairsChar { get; set; }
+        public char startingPosition { get; set; }
 
         // Settings for quests
-        public string questEnemyType = "Plasmoid";
-        public string questEnemyType2 = "Construct";
-        public int questTargetCoin = 20;
-        public int questTargetEnemy1 = 20;
-        public int questTargetEnemy2 = 10;
-        public int questTargetMulti = 30;
+        public string questEnemyType { get; set; }
+        public string questEnemyType2 { get; set; }
+        public int questTargetCoin { get; set; }
+        public int questTargetEnemy1 { get; set; }
+        public int questTargetEnemy2 { get; set; }
+        public int questTargetMulti { get; set; }
 
         //Base values for enemy stats. 
-        public int PlasmoidBaseHP = 3;
-        public int PlasmoidBaseDamage = 1;
-        public char PlasmoidChar = (char)4;
-        public int ConstructBaseHP = 3;
-        public int ConstructBaseDamage = 2;
-        public char ConstructChar = (char)5;
-        public int GoblinFolkBaseHP = 3;
-        public int GoblinFolkBaseDamage = 4;
-        public char GoblinFolkChar = (char)6;
+        public int PlasmoidBaseHP { get; set; }
+        public int PlasmoidBaseDamage { get; set; }
+        public char PlasmoidChar { get; set; }
+        public int ConstructBaseHP { get; set; }
+        public int ConstructBaseDamage { get; set; }
+        public char ConstructChar { get; set; }
+        public int GoblinFolkBaseHP { get; set; }
+        public int GoblinFolkBaseDamage { get; set; }
+        public char GoblinFolkChar { get; set; }
 
         // base value for player stats
-        public int playerMaxHP = 15;
-        public int playerStartingCoins = 0;
-        public int PlayerBaseDamage = 1;
-        public string playerName = "Guard";
+        public int playerMaxHP { get; set; }
+        public int playerStartingCoins { get; set; }
+        public int PlayerBaseDamage { get; set; }
+        public string playerName { get; set; }
 
         // base values for items
-        public int healthGain = 3;
-        public int coinGain = 1;
-        public int armorGain = 1;
-        public int spikeDamage = 3;
-        public int swordGain = 2;
+        public int healthGain { get; set; }
+        public int coinGain { get; set; }
+        public int armorGain { get; set; }
+        public int spikeDamage { get; set; }
+        public int swordGain { get; set; }
 
         // Color For Items
-        public ConsoleColor healthColor = ConsoleColor.Red;
-        public ConsoleColor coinColor = ConsoleColor.DarkYellow;
-        public ConsoleColor armorColor = ConsoleColor.DarkBlue;
-        public ConsoleColor finalLootColor = ConsoleColor.Yellow;
-        public ConsoleColor swordColor = ConsoleColor.DarkGreen;
-        public ConsoleColor spikeColor = ConsoleColor.Red;
+        public ConsoleColor healthColor { get; set; }
+        public ConsoleColor coinColor { get; set; }
+        public ConsoleColor armorColor { get; set; }
+        public ConsoleColor finalLootColor { get; set; }
+        public ConsoleColor swordColor { get; set; }
+        public ConsoleColor spikeColor { get; set; }
 
         // Characters for Items
-        public char healthChar = (char)3;
-        public char coinChar = (char)164;
-        public char armorChar = (char)21;
-        public char finalLootChar = (char)165;
-        public char spikeChar = (char)23;
-        public char swordChar = '+';
+        public char healthChar { get; set; }
+        public char coinChar { get; set; }
+        public char armorChar { get; set; }
+        public char finalLootChar { get; set; }
+        public char spikeChar { get; set; }
+        public char swordChar { get; set; }
 
         // Item Cost
-        public int healthCost = 7;
-        public int armorCost = 8;
-        public int swordCost = 10;
+        public int healthCost { get; set; }
+        public int armorCost { get; set; }
+        public int swordCost { get; set; }
         //public static int healthCost = 1;
         //public static int armorCost = 1;
         //public static int swordCost = 1;
-        public Settings()
+        public Settings() //Sets defult values for everything. 
         {
-            
+        storeChar = 'S';
+        storeFloor = '%';
+        dungeonWall = '#';
+        dungeonFloor = '-';
+        stairs = '~';
+        newStairsChar = (char)30;
+        startingPosition = '=';
+
+        // Settings for quests
+        questEnemyType = "Plasmoid";
+        questEnemyType2 = "Construct";
+        questTargetCoin = 20;
+        questTargetEnemy1 = 20;
+        questTargetEnemy2 = 10;
+        questTargetMulti = 30;
+
+        //Base values for enemy stats. 
+        PlasmoidBaseHP = 3;
+        PlasmoidBaseDamage = 1;
+        PlasmoidChar = (char)4;
+        ConstructBaseHP = 3;
+        ConstructBaseDamage = 2;
+        ConstructChar = (char)5;
+        GoblinFolkBaseHP = 3;
+        GoblinFolkBaseDamage = 4;
+        GoblinFolkChar = (char)6;
+
+        // base value for player stats
+        playerMaxHP = 15;
+        playerStartingCoins = 0;
+        PlayerBaseDamage = 1;
+        playerName = "Guard";
+
+        // base values for items
+        healthGain = 3;
+        coinGain = 1;
+        armorGain = 1;
+        spikeDamage = 3;
+        swordGain = 2;
+
+        // Color For Items
+        healthColor = ConsoleColor.Red;
+        coinColor = ConsoleColor.DarkYellow;
+        armorColor = ConsoleColor.DarkBlue;
+        finalLootColor = ConsoleColor.Yellow;
+        swordColor = ConsoleColor.DarkGreen;
+        spikeColor = ConsoleColor.Red;
+
+        // Characters for Items
+        healthChar = (char)3;
+        coinChar = (char)164;
+        armorChar = (char)21;
+        finalLootChar = (char)165;
+        spikeChar = (char)23;
+        swordChar = '+';
+
+        // Item Cost
+        healthCost = 7;
+        armorCost = 8;
+        swordCost = 10;
         }
     }
 }
